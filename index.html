@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+        }
+
+        .api-method {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .api-method pre {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .api-method p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>API Documentation</h1>
+    <p>Welcome to the AB Coin API. Below you will find all the information you need to integrate with our services.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#authentication">Authentication</a></li>
+        <li><a href="#endpoints">API Endpoints</a></li>
+    </ul>
+</nav>
+
+<div class="content">
+    <!-- Overview Section -->
+    <div id="overview" class="section">
+        <h2>Overview</h2>
+        <p>Our API provides access to various features of the AB Coin ecosystem, such as token transfer, account balances, and transaction history. You can easily integrate these features into your application with simple HTTP requests.</p>
+    </div>
+
+    <!-- Authentication Section -->
+    <div id="authentication" class="section">
+        <h2>Authentication</h2>
+        <p>To interact with the AB Coin API, you must first authenticate using an API key. You can obtain your API key by registering on our platform.</p>
+        <div class="api-method">
+            <h3>Get API Key</h3>
+            <p>To get your API key, sign up on our platform and navigate to the 'API Settings' page.</p>
+            <pre>
+GET /api/v1/authenticate
+            </pre>
+        </div>
+    </div>
+
+    <!-- API Endpoints Section -->
+    <div id="endpoints" class="section">
+        <h2>API Endpoints</h2>
+
+        <!-- Example GET Request -->
+        <div class="api-method">
+            <h3>GET /api/v1/coin/balance</h3>
+            <p>Retrieve the balance of a specific wallet address.</p>
+            <pre>
+GET /api/v1/coin/balance?address={wallet_address}
+            </pre>
+            <p>Response Example:</p>
+            <pre>
+{
+    "address": "AB3c17HWUjVr7ueKYW8_isGzyfLnQT3Umg2JYdW-6tBWq6t",
+    "balance": "1000.50"
+}
+            </pre>
+        </div>
+
+        <!-- Example POST Request -->
+        <div class="api-method">
+            <h3>POST /api/v1/coin/transfer</h3>
+            <p>Transfer tokens from one address to another.</p>
+            <pre>
+POST /api/v1/coin/transfer
+{
+    "from": "{sender_address}",
+    "to": "{receiver_address}",
+    "amount": "100"
+}
+            </pre>
+            <p>Response Example:</p>
+            <pre>
+{
+    "status": "success",
+    "transaction_id": "abcd1234"
+}
+            </pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Optional JavaScript for enhancing functionality or user interaction
+</script>
+
+</body>
+</html>
